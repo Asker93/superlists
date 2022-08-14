@@ -46,15 +46,14 @@ class NewVisitorTest(unittest.TestCase):
         # Когда она нажимает ENTER, страница обновляется, и теперь страница
         # содержит "1: Купить павлиньи перья" в качестве списка элемента
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
-
-        self.check_for_row_in_list_table('1: Купить павлиньи перья')
+        time.sleep(3)
 
         # Текстовое поле по прежнему приглашает ее добавить еще один элемент.
         # Она вводит "Сделать мушку из павлиньих перьев"
         # (Эдит очень методична)
         inputbox = self.browser.find_element(By.ID, 'id_new_item')
         inputbox.send_keys('Сделать мушку из павлиньих перьев')
+        self.assertEqual(inputbox.get_attribute('placeholder'), 'Enter a to-do item')
 
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
