@@ -121,7 +121,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotEqual(edith_list_url, francis_list_url)
 
         # Опять таки, нет ни следа от списка Эдит
-        page_text = self.browser.find_element(By.TAG_NAME, 'body')
+        page_text = self.browser.find_element(By.TAG_NAME, 'body').text
         self.assertNotIn('Купить павлиньи перья', page_text)
         self.assertIn('Купить молоко', page_text)
 
