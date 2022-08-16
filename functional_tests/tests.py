@@ -99,6 +99,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Мы используем новый сеанс браузера, тем самым обеспечивая, чтобы никакая информация
         # от Эдит не прошла через данные cookie и пр.
+        time.sleep(3)
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
